@@ -36,6 +36,9 @@
 - (void)clearAllNotifications:(CDVInvokedUrlCommand *)command;
 - (void)logMessage:(CDVInvokedUrlCommand*)command;
 - (void)sendCrash:(CDVInvokedUrlCommand*)command;
+- (void)createChannel:(CDVInvokedUrlCommand *)command;
+- (void)deleteChannel:(CDVInvokedUrlCommand *)command;
+- (void)listChannels:(CDVInvokedUrlCommand *)command;
 @property (nonatomic, copy) NSString *notificationCallbackId;
 @property (nonatomic, copy) NSString *tokenRefreshCallbackId;
 @property (nonatomic, retain) NSMutableArray *notificationStack;

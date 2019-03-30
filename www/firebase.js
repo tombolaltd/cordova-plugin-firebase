@@ -155,3 +155,14 @@ exports.sendCrash = function (success, error) {
     exec(success, error, "FirebasePlugin", "sendCrash", []);
 };
 
+exports.createChannel = function (options, success, error) {
+  exec(success, error, "FirebasePlugin", "createChannel", [options]);
+};
+
+exports.deleteChannel = function (channelID, success, error) {
+  exec(success, error, "FirebasePlugin", "deleteChannel", [channelID]);
+};
+
+exports.listChannels = function (success, error) {
+  exec(success, error, "FirebasePlugin", "listChannels", []);
+};
