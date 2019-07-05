@@ -155,6 +155,10 @@ exports.sendCrash = function (success, error) {
     exec(success, error, "FirebasePlugin", "sendCrash", []);
 };
 
+exports.setDefaultChannel = function (options, success, error) {
+    exec(success, error, "FirebasePlugin", "setDefaultChannel", [options]);
+};
+
 exports.createChannel = function (options, success, error) {
   exec(success, error, "FirebasePlugin", "createChannel", [options]);
 };

@@ -507,6 +507,13 @@ static FirebasePlugin *firebasePlugin;
     }];
 }
 
+- (void)setDefaultChannel:(CDVInvokedUrlCommand *)command {
+	[self.commandDelegate runInBackground:^{
+        CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+    }];
+}
+
 - (void)deleteChannel:(CDVInvokedUrlCommand *)command {
 	[self.commandDelegate runInBackground:^{
         CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];

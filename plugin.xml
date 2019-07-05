@@ -41,6 +41,8 @@
 				</intent-filter>
 			</service>
 			<receiver android:name="org.apache.cordova.firebase.OnNotificationOpenReceiver"></receiver>
+			<meta-data android:name="com.google.firebase.messaging.default_notification_color" android:resource="@color/accent" />
+			<meta-data android:name="com.google.firebase.messaging.default_notification_channel_id" android:value="@string/default_notification_channel_id"/>
 		</config-file>
 		<resource-file src="src/android/google-services.json" target="."/>
 		<resource-file src="src/android/cordova-plugin-firebase-strings.xml" target="res/values/cordova-plugin-firebase-strings.xml" />
@@ -49,7 +51,13 @@
 		<source-file src="src/android/FirebasePluginMessagingService.java" target-dir="src/org/apache/cordova/firebase" />
 		<source-file src="src/android/FirebasePluginMessageReceiver.java" target-dir="src/org/apache/cordova/firebase" />
 		<source-file src="src/android/FirebasePluginMessageReceiverManager.java" target-dir="src/org/apache/cordova/firebase" />
+
+
 		<source-file src="src/android/colors.xml" target-dir="res/values" />
+		<preference name="ANDROID_ICON_ACCENT" default="#FF00FFFF" />
+		<config-file target="res/values/colors.xml" parent="/resources">
+			<color name="accent">$ANDROID_ICON_ACCENT</color>
+		</config-file>
 
 		<framework src="src/android/build.gradle" custom="true" type="gradleReference" />
 
@@ -124,12 +132,6 @@
 		<pod name="Fabric" spec="$IOS_FABRIC_VERSION" />
 		<pod name="Crashlytics" spec="$IOS_CRASHLYTICS_VERSION" />
 
-	</platform>
-
-	<platform name="browser">
-		<js-module name="FirebasePlugin" src="www/firebase-browser.js">
-			<clobbers target="FirebasePlugin" />
-		</js-module>
 	</platform>
 
 	<hook type="after_prepare" src="scripts/after_prepare.js" />
